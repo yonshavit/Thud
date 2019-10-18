@@ -1,9 +1,9 @@
 # Thud
 A repository for the game Thud.
 
-Game Rules
+## **Game Rules**
 
-Game Board:
+### **Game Board:**
 	The octagonal playing area consists of a 15 by 15 square board
 	from which a triangle of 15 squares in each corner has been
 	removed.
@@ -15,10 +15,10 @@ Game Board:
 	placed so as to occupy all the perimeter spaces except for the
 	four in the same horizontal or vertical line as the Thudstone.
 
-Game Start:
+### **Game Start:**
 	One player takes control of the dwarfs, the other controls the trolls. The dwarfs move first.
 
-Game End Conditions:
+### **Game End Conditions:**
 	The battle is over when both players agree that no more captures can be made by continuing to play, or
 	when one player has no more valid moves to make. At this point the players count score: the dwarfs score 1
 	point for each surviving dwarf, and the trolls score 4 for each remaining troll, with the difference being the
@@ -26,7 +26,7 @@ Game End Conditions:
 	the two battles determines the overall victor.
 
 
-On the dwarfs' turn, they may either move or hurl one dwarf:
+### **On the dwarfs' turn, they may either move or hurl one dwarf:**
 	- Move: any one dwarf is moved like a chess queen, any number of squares in any orthogonal or
 		diagonal direction, but not onto or through any other piece, whether Thudstone, dwarf, or troll; or
 	- Hurl: anywhere there is a straight (orthogonal or diagonal) line of adjacent dwarfs on the board, they
@@ -38,7 +38,7 @@ On the dwarfs' turn, they may either move or hurl one dwarf:
 		line. Since a single dwarf is a line of one in any direction, a dwarf may always move one space to
 		capture a troll on an immediately adjacent square.
 
-On the trolls' turn, they may either move or shove one troll:
+### **On the trolls' turn, they may either move or shove one troll:**
 	- Move: one troll is moved like a chess king, one square in any orthogonal or diagonal direction onto
 		an empty square. After the troll has been moved, only a single dwarf on the eight squares adjacent to
 		the moved troll may optionally be immediately captured and removed from the board, at the troll
