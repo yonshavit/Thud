@@ -20,8 +20,8 @@ A repository for the game Thud.
 
 ### **Game End Conditions:**
 	The battle is over when both players agree that no more captures can be made by continuing to play, or
-	when one player has no more valid moves to make. At this point the players count score: the dwarfs score 1
-	point for each surviving dwarf, and the trolls score 4 for each remaining troll, with the difference being the
+	when one player has no more valid moves to make. At this point the players count score: the dwarfs score 4
+	point for each captured troll, and the trolls score 1 for each captured dwarf, with the difference being the
 	'final' score. The players should then swap sides to play another round, and the sum of their final scores for
 	the two battles determines the overall victor.
 
