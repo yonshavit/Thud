@@ -1,4 +1,4 @@
-class Player():
+class Player:
     """Player class to hold information about the player."""
 
     def __init__(self, name, race):
