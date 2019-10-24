@@ -12,10 +12,10 @@ class GamePiece:
     def show_possible_moves(self, my_board):
         """Creates a new modified board where the squares at self.position's piece is 'D', 'magenta' and all possible move options pieces are 'P', 'cyan' """
         new_board = my_board
-        possible_list = self.get_moves_list(my_board)
+        possible_moves = self.get_moves_list(my_board)
         #Change the possible movement squares to P.
-        for position in possible_list:
-            new_board.get_square(position).piece = colored("P", "cyan")
+        for position in possible_moves:
+                new_board.get_square(position).piece = colored("P", "cyan")
         #Change my own square's color to magenta.
         position = self.position
         new_board.get_square(position).piece = colored("D", "magenta")
@@ -29,7 +29,7 @@ class GamePiece:
         """Returns a list of the possible moves by this GamePiece."""
         raise NotImplementedError("Abstract Function")
 
-    def check_line(self, my_board, (opp_row, opp_col)):
+    def sum_pieces_in_opposite_direction(self, my_board, (opp_row, opp_col)):
         """Receives a board and a cell adjacent to self
         Returns a counter of how many pieces are of same type in the opposite direction."""
         my_type = type(self)

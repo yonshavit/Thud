@@ -14,7 +14,7 @@ class Board:
         self.squares = [[None for col in BOARD_RANGE] for row in BOARD_RANGE]
         for row in BOARD_RANGE:
             for col in BOARD_RANGE:
-                pos = (row,col)
+                pos = (row, col)
                 if valid_square(pos):
                     self.squares[row][col] = BoardSquare(pos, PieceFactory.create(pos))
 
@@ -23,7 +23,7 @@ class Board:
 
     # Functions
 
-    def get_square(self,(row, col)):
+    def get_square(self, (row, col)):
         """Returns the BoardSquare at pos."""
         return self.squares[row][col]
 
