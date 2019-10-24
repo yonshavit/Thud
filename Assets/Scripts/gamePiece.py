@@ -10,13 +10,14 @@ class GamePiece:
         self.position = (row, col)
 
     def show_possible_moves(self, my_board):
-        """Creates a new modified board where the squares at self.position's piece is 'D', 'magenta' and all possible move options pieces are 'P', 'cyan' """
+        """Creates a new modified board where the squares at self.position's piece is 'D', 'magenta'
+        and all possible move options pieces are 'P', 'cyan'."""
         new_board = my_board
         possible_moves = self.get_moves_list(my_board)
-        #Change the possible movement squares to P.
+        # Change the possible movement squares to P.
         for position in possible_moves:
                 new_board.get_square(position).piece = colored("P", "cyan")
-        #Change my own square's color to magenta.
+        # Change my own square's color to magenta.
         position = self.position
         new_board.get_square(position).piece = colored("D", "magenta")
         print(new_board)

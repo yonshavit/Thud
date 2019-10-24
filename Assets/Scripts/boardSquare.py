@@ -1,5 +1,4 @@
 from termcolor import colored
-import dwarfPiece
 from constants import BOARD_RANGE
 
 
