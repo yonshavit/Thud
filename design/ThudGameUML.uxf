@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>170</x>
+      <x>0</x>
       <y>560</y>
       <w>180</w>
       <h>130</h>
@@ -20,20 +20,19 @@ Destroy</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
+      <x>70</x>
       <y>350</y>
-      <w>170</w>
+      <w>200</w>
       <h>130</h>
     </coordinates>
     <panel_attributes>/GamePiece/
 --
 BoardSquare - Position
-Player - Owner
-String - Icon
 --
-/ShowPossibleMove/
-/Move/
-/Destroy/
+GetPrintString()
+/ShowPossibleMove(Board)/
+/Move(Board,Position)/
+/Destroy(Board)/
 
 </panel_attributes>
     <additional_attributes/>
@@ -41,7 +40,7 @@ String - Icon
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
+      <x>70</x>
       <y>470</y>
       <w>30</w>
       <h>110</h>
@@ -52,7 +51,7 @@ String - Icon
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>380</x>
+      <x>210</x>
       <y>560</y>
       <w>180</w>
       <h>130</h>
@@ -68,7 +67,7 @@ Destroy</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>340</x>
+      <x>170</x>
       <y>470</y>
       <w>110</w>
       <h>110</h>
@@ -79,7 +78,7 @@ Destroy</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>850</x>
+      <x>680</x>
       <y>350</y>
       <w>100</w>
       <h>110</h>
@@ -95,14 +94,14 @@ PrintBoard
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
+      <x>460</x>
       <y>350</y>
       <w>100</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>BoardSquare
 --
-Location
+Position
 GamePiece
 --
 PrintSquare
@@ -113,7 +112,7 @@ OccupySquare</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
+      <x>550</x>
       <y>360</y>
       <w>150</w>
       <h>50</h>
@@ -127,21 +126,21 @@ m2=n
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
+      <x>260</x>
       <y>360</y>
-      <w>250</w>
+      <w>220</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
 m2=1
 Occupies</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
+      <x>260</x>
       <y>90</y>
       <w>180</w>
       <h>230</h>
@@ -166,13 +165,14 @@ Exit
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>230</x>
+      <x>60</x>
       <y>90</y>
       <w>100</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>Player
 --
+Name
 Race
 Score</panel_attributes>
     <additional_attributes/>
@@ -180,7 +180,7 @@ Score</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>320</x>
+      <x>150</x>
       <y>100</y>
       <w>130</w>
       <h>50</h>
@@ -194,21 +194,7 @@ m2=2
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>130</x>
-      <y>140</y>
-      <w>130</w>
-      <h>270</h>
-    </coordinates>
-    <panel_attributes>lt=-
-m1=1
-m2=n
-</panel_attributes>
-    <additional_attributes>100.0;10.0;10.0;10.0;10.0;240.0;110.0;240.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>600</x>
+      <x>430</x>
       <y>130</y>
       <w>270</w>
       <h>270</h>
