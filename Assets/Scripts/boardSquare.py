@@ -1,5 +1,6 @@
 from termcolor import colored
 from constants import BOARD_RANGE
+# from dwarfPiece import DwarfPiece
 
 
 class BoardSquare:
@@ -33,14 +34,14 @@ class BoardSquare:
         (row, col) = self.position
         for row_range in range(row-1, row+2):
             for col_range in range(col-1, col+2):
-                if self.valid_square((row_range, col_range)):
+                if valid_square((row_range, col_range)):
                     ans.append((row_range, col_range))
         ans.remove(self.position)
         return ans
 
-    @staticmethod
-    def valid_square((row, col)):
-        """Return True if the position is in a legal space on the board."""
-        # The distance of all valid squares from the Thudstone is 9 at most, the Thudstone is not a valid square.
-        return (row != 7 or col != 7) and (abs(row - 7) + abs(col - 7) <= 9) and \
-            row in BOARD_RANGE and col in BOARD_RANGE
+
+def valid_square((row, col)):
+    """Return True if the position is in a legal space on the board."""
+    # The distance of all valid squares from the Thudstone is 9 at most, the Thudstone is not a valid square.
+    return (row != 7 or col != 7) and (abs(row - 7) + abs(col - 7) <= 9) and \
+        row in BOARD_RANGE and col in BOARD_RANGE

@@ -1,6 +1,5 @@
 from termcolor import colored
-from boardSquare import BoardSquare
-valid_square = BoardSquare.valid_square
+from boardSquare import valid_square
 
 
 class GamePiece:

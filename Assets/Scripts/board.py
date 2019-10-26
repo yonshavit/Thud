@@ -1,8 +1,7 @@
 from termcolor import colored
-from pieceFactory import PieceFactory
+from pieceFactory import create
 from constants import BOARD_RANGE
-from boardSquare import BoardSquare
-valid_square = BoardSquare.valid_square
+from boardSquare import BoardSquare, valid_square
 
 
 class Board:
@@ -14,7 +13,7 @@ class Board:
             for col in BOARD_RANGE:
                 pos = (row, col)
                 if valid_square(pos):
-                    self.squares[row][col] = BoardSquare(pos, PieceFactory.create(pos))
+                    self.squares[row][col] = BoardSquare(pos, create(pos))
 
                 else:
                     self.squares[row][col] = BoardSquare(pos)

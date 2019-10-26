@@ -1,8 +1,7 @@
 from termcolor import colored
 from gamePiece import GamePiece
-import trollPiece
-from boardSquare import BoardSquare
-valid_square = BoardSquare.valid_square
+from trollPiece import TrollPiece
+from boardSquare import valid_square
 
 
 class DwarfPiece(GamePiece):
@@ -42,7 +41,7 @@ class DwarfPiece(GamePiece):
             # Count the step
             step_counter += 1
             # If it's a troll, check for throw.
-            if isinstance(my_board.get_square((row_step, col_step)).piece, trollPiece.TrollPiece):
+            if isinstance(my_board.get_square((row_step, col_step)).piece, TrollPiece):
                 # If you can hurl at the troll, add it to ans.
                 if step_counter <= self.sum_pieces_in_opposite_direction(my_board, (target_row, target_col)):
                     ans.append((row_step, col_step))
@@ -67,7 +66,7 @@ class DwarfPiece(GamePiece):
         my_board.get_square((my_row, my_col)).vacant_square()
         # Then occupy target square
         # Check if it's a troll, and update score if necessary.
-        if isinstance(target_square.piece, trollPiece.TrollPiece):
+        if isinstance(target_square.piece, TrollPiece):
             target_square.vacant_square()
             score = 4
         # Occupy the square and return the score.

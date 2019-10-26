@@ -1,8 +1,7 @@
 from termcolor import colored
 import gamePiece
 import dwarfPiece
-from boardSquare import BoardSquare
-valid_square = BoardSquare.valid_square
+from boardSquare import valid_square
 
 
 class TrollPiece(gamePiece.GamePiece):
@@ -29,7 +28,7 @@ class TrollPiece(gamePiece.GamePiece):
             # Then occupy target square
             target_square.occupy_square(self)
             # If target space has dwarf, check for captures, otherwise return the score.
-            if TrollPiece.has_adjacent_dwarf(my_board, target):
+            if has_adjacent_dwarf(my_board, target):
                 return self.capture_dwarfs(my_board, shoved)
             else:
                 return 0
@@ -48,9 +47,9 @@ class TrollPiece(gamePiece.GamePiece):
         # Case 1: Troll was shoved..
         if shoved:
             score = 0
-            adjacent_dwarfs = TrollPiece.get_adjacent_dwarfs(my_board, self.position)
+            adjacent_dwarfs = len(get_adjacent_dwarfs(my_board, self.position))
 
-            while adjacent_dwarfs != []:
+            while adjacent_dwarfs > 0:
                 new_score_delta = self.capture_one_dwarf(my_board)
                 if new_score_delta == 0:
                     # If no dwarf was inputted make sure at least one dwarf was captured.
@@ -61,7 +60,7 @@ class TrollPiece(gamePiece.GamePiece):
                     return score
                 # If we captured a dwarf, we update the score and the adjacent dwarfs list.
                 score += new_score_delta
-                adjacent_dwarfs = TrollPiece.get_adjacent_dwarfs(my_board, self.position)
+                adjacent_dwarfs -= 1
             # If we ran out of adjacent dwarfs.
             return score
 
@@ -70,7 +69,7 @@ class TrollPiece(gamePiece.GamePiece):
 
     def capture_one_dwarf(self, my_board):
         target = self.position
-        adjacent_dwarfs = TrollPiece.get_adjacent_dwarfs(my_board, target)
+        adjacent_dwarfs = get_adjacent_dwarfs(my_board, target)
         while True:
             dwarf = TrollPiece.get_capture_dwarf_position()
             # If no dwarf is to be captured, return the score change 0.
@@ -82,21 +81,6 @@ class TrollPiece(gamePiece.GamePiece):
                 return 1
             # Otherwise re prompt the user for a dwarf or - to cancel.
             print("Illegal dwarf capture coordinates.")
-
-    @staticmethod
-    def has_adjacent_dwarf(board, target):
-        """Returns true if exists a square adjacent to target with a dwarf."""
-        return TrollPiece.get_adjacent_dwarfs(board, target) != []
-
-    @staticmethod
-    def get_adjacent_dwarfs(board, target):
-        """Returns a list of position tuples of each adjacent square that contains a dwarf."""
-        ans = []
-        adjacent_list = board.get_square(target).get_adjacent()
-        for position in adjacent_list:
-            if isinstance(board.get_square(position).piece, dwarfPiece.DwarfPiece):
-                ans.append(position)
-        return ans
 
     def get_moves_list(self, my_board):
         """Returns a list of the possible moves by this GamePiece.
@@ -127,10 +111,25 @@ class TrollPiece(gamePiece.GamePiece):
                 (steps_taken == 1 or steps_taken <= number_of_trolls) and \
                 my_board.get_square((row_step, col_step)).piece is None:
             # Check to see if there's an adjacent dwarf so shove is legal.
-            if steps_taken > 1 and self.has_adjacent_dwarf(my_board, (row_step, col_step)):
+            if steps_taken > 1 and has_adjacent_dwarf(my_board, (row_step, col_step)):
                 ans.append(((row_step, col_step), True))
             elif steps_taken == 1:
                 ans.append(((row_step, col_step), number_of_trolls > 0))
             steps_taken += 1
             (row_step, col_step) = (row_step + row_dir, col_step + col_dir)
         return ans
+
+
+def has_adjacent_dwarf(board, target):
+    """Returns true if exists a square adjacent to target with a dwarf."""
+    return get_adjacent_dwarfs(board, target) != []
+
+
+def get_adjacent_dwarfs(board, target):
+    """Returns a list of position tuples of each adjacent square that contains a dwarf."""
+    ans = []
+    adjacent_list = board.get_square(target).get_adjacent()
+    for position in adjacent_list:
+        if isinstance(board.get_square(position).piece, dwarfPiece.DwarfPiece):
+            ans.append(position)
+    return ans
